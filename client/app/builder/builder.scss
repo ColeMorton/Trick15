@@ -1,0 +1,55 @@
+.builder
+  .container
+
+    .nav-tabs {
+      border-bottom: 0px solid #DDD;
+    }
+
+    .item {
+      margin-right: 5px;
+
+      .dropdown-toggle:hover {
+        cursor: pointer;
+      }
+
+      .dropdown-menu {
+        li:hover {
+          cursor: pointer;
+        }
+      }
+
+      li {
+        padding: 3px 20px;
+      }
+    }
+
+    .combination {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .stance {
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      span {
+        margin-right: 10px;
+      }
+
+      input[type="radio"] {
+        margin-right: 5px;
+      }
+    }
+
+    .list-group {
+      height: 161px;
+      overflow: scroll;
+    }
+
+.inline {
+  display: inline;
+}
+
+.relative {
+  position: relative;
+}

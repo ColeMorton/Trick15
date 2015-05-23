@@ -1,0 +1,35 @@
+div(ng-include='"components/navbar/navbar.html"')
+
+.container
+  .row
+    .col-md-12
+        textarea(rows='8')
+          | {{ console }}
+
+  .row
+    .col-md-12
+      h1 {{tricker.name}}'s {{trick.name}}
+
+  .jumbotron
+
+    .row
+      .col-md-12
+        h2 Train your {{trick.name}}!
+
+    .row
+      .col-md-12
+        p
+          a.btn.btn-success.btn-lg(ng-href='/mental/{{trick._id}}') Mental
+          | Increase your mental understanding of the {{trick.name}} for skill bonuses
+
+    .row
+      .col-md-12
+        p
+          a.btn.btn-danger.btn-lg(ng-href='/skill/{{trick._id}}') Skill
+          | Increase your skill of the {{trick.name}} to land them more often
+
+    .row
+      .col-md-12
+        p
+          a.btn.btn-primary.btn-lg(ng-href='/style/{{trick._id}}') Style
+          | Increase your style of the {{trick.name}} to make them look better

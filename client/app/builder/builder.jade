@@ -1,0 +1,75 @@
+.builder
+
+  div(ng-include='"components/navbar/navbar.html"')
+
+  .container
+
+    .combination(ng_show='showCombo()')
+      .row.header
+        .col-lg-12
+          label Combination
+
+      .row.content
+        .col-lg-12
+          .item.inline.relative
+            | {{initialStance()}}
+
+          .item.inline.relative(ng-repeat='trick in combo.tricks track by $index')
+            .inline.dropdown-toggle(data-toggle='dropdown', href='#', role='button', aria-expanded='false')
+              | {{trick.shortest}}
+
+            //- ul.dropdown-menu(role='dropdown')
+            //-   li(ng-click='removeTrick($index)') Remove
+            //-   li(ng-click='addKick()') Add Kick
+            //-   li Add Hyper
+            //-   li Add Gyro
+            //-   .divider
+            //-   li Separated link
+
+          .item.inline.relative
+            | | {{currentStance()}}
+
+    .row(ng_show='showSelectSpecific()')
+      .col-lg-12
+        label Current Action: {{currentAction}}
+
+    .stance(ng_show='showSelectStance()')
+      .row.header
+        .col-lg-12
+          label Select Stance
+
+      .row.content
+        .col-lg-12
+          span
+            input(type='radio', name='stance', value='FS', ng_click='setStanceFrontside()', checked=true)
+            | Frontside
+          span
+            input(type='radio', name='stance', value='BS', ng_click='setStanceBackside()')
+            | Backside
+
+    .row
+      .col-lg-2(ng_show='showTransitions()')
+        label Transitions
+        ul.list-group
+          li.list-group-item(ng-repeat='trick in transitions', ng-click='trickSelected(trick)')
+            | {{trick.name}}
+      .col-lg-2(ng_show='showInitials()')
+        label Initials
+        ul.list-group
+          li.list-group-item(ng-repeat='trick in initials', ng-click='trickSelected(trick)')
+            | {{trick.name}}
+      .col-lg-2(ng_show='showRotations()')
+        label Rotations
+        ul.list-group
+          li.list-group-item(ng-repeat='trick in rotations', ng-click='trickSelected(trick)')
+            | {{trick.name}}
+      .col-lg-2(ng_show='showKicks()')
+        label Kicks
+        ul.list-group
+          li.list-group-item(ng-repeat='trick in kicks', ng_show='showTrick(trick)', ng-click='trickSelected(trick)')
+            | {{trick.name}}
+      .col-lg-2(ng_show='showHypers()')
+        label Hypers
+        ul.list-group
+          li.list-group-item(ng-repeat='trick in hypers', ng-click='trickSelected(trick)')
+            | {{trick.name}}

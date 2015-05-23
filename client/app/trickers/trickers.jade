@@ -1,0 +1,15 @@
+div(ng-include='"components/navbar/navbar.html"')
+
+.container
+  .row
+    .col-md-12
+        textarea(rows='8')
+          | {{ console }}
+
+  .row
+    .col-lg-12
+      h2.page-header Trickers:
+      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='tricker in trickers')
+        li
+          a(href='/home/{{tricker._id}}', tooltip='{{tricker.info}}')
+            | {{tricker.name}}
